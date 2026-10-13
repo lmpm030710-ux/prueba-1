@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Markets | Tu puerta de entrada a la Bolsa de Valores</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardBg: '#111827',
+                        accentGreen: '#10b981',
+                        accentBlue: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-gray-100 font-sans antialiased selection:bg-accentGreen selection:text-black">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-accentGreen to-accentBlue flex items-center justify-center text-black font-black text-xl shadow-lg shadow-accentGreen/20">
+                    <i class="fa-solid fa-chart-line text-black"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wider text-white">APEX<span class="text-accentGreen">MARKETS</span></span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#mercados" class="hover:text-accentGreen transition">Mercados</a>
+                <a href="#ventajas" class="hover:text-accentGreen transition">Ventajas</a>
+                <a href="#calculadora" class="hover:text-accentGreen transition">Simulador</a>
+                <a href="#testimonios" class="hover:text-accentGreen transition">Testimonios</a>
+            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#registro" class="text-sm font-semibold text-gray-300 hover:text-white transition">Iniciar Sesión</a>
+                <a href="#registro" class="px-5 py-2.5 rounded-xl bg-accentGreen text-black font-semibold text-sm hover:bg-emerald-400 transition shadow-lg shadow-accentGreen/20">Crear Cuenta</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardBg border-b border-gray-800 px-4 pt-4 pb-6 space-y-4">
+            <a href="#mercados" class="block text-gray-300 hover:text-accentGreen transition py-1">Mercados</a>
+            <a href="#ventajas" class="block text-gray-300 hover:text-accentGreen transition py-1">Ventajas</a>
+            <a href="#calculadora" class="block text-gray-300 hover:text-accentGreen transition py-1">Simulador</a>
+            <a href="#testimonios" class="block text-gray-300 hover:text-accentGreen transition py-1">Testimonios</a>
+            <div class="pt-4 border-t border-gray-800 flex flex-col space-y-3">
+                <a href="#registro" class="text-center py-2 text-gray-300 hover:text-white font-medium">Iniciar Sesión</a>
+                <a href="#registro" class="text-center py-2.5 rounded-xl bg-accentGreen text-black font-semibold hover:bg-emerald-400 transition">Crear Cuenta</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- TICKER DE MERCADO EN VIVO -->
+    <div class="pt-20 bg-gray-950 border-b border-gray-800 overflow-hidden whitespace-nowrap py-3">
+        <div class="inline-flex animate-ticker space-x-12 text-xs font-mono">
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">S&P 500</span> <span class="text-white font-bold">5,117.09</span> <span class="text-accentGreen">+0.85%</span></span>
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">NASDAQ</span> <span class="text-white font-bold">16,286.42</span> <span class="text-accentGreen">+1.12%</span></span>
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">BTC/USD</span> <span class="text-white font-bold">67,420.00</span> <span class="text-accentGreen">+3.45%</span></span>
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">APPLE (AAPL)</span> <span class="text-white font-bold">178.72</span> <span class="text-red-500">-0.24%</span></span>
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">TESLA (TSLA)</span> <span class="text-white font-bold">175.34</span> <span class="text-accentGreen">+2.10%</span></span>
+            <span class="inline-flex items-center space-x-2"><span class="text-gray-400">ORO (XAU)</span> <span class="text-white font-bold">2,165.40</span> <span class="text-accentGreen">+0.40%</span></span>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-24 md:pt-28 md:pb-36 overflow-hidden">
+        <!-- Glow effects background -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-accentGreen/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left text content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-gray-800/80 border border-gray-700 text-xs font-medium text-accentGreen">
+                        <span class="w-2 h-2 rounded-full bg-accentGreen animate-pulse"></span>
+                        <span>Plataforma regulada y segura 2026</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Invierte en el <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentGreen to-accentBlue">fututo financiero</span> global
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-400 max-w-xl mx-auto lg:mx-0">
+                        Accede a acciones internacionales, criptomonedas, forex y materias primas con comisiones de 0% y ejecución instantánea desde cualquier dispositivo.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start items-center space-y-3 sm:space-y-0 sm:space-x-4 pt-2">
+                        <a href="#registro" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-accentGreen text-black font-bold text-center hover:bg-emerald-400 transition shadow-xl shadow-accentGreen/20">
+                            Abrir cuenta gratis
+                        </a>
+                        <a href="#calculadora" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gray-800 hover:bg-gray-700 text-white font-semibold text-center border border-gray-700 transition">
+                            Probar simulador
+                        </a>
+                    </div>
+                    <!-- Trust badges -->
+                    <div class="pt-6 flex items-center justify-center lg:justify-start space-x-8 text-gray-500 text-xs uppercase tracking-wider font-semibold">
+                        <span><i class="fa-solid fa-shield-halved text-accentGreen mr-1"></i> Regulado SEC & FCA</span>
+                        <span><i class="fa-solid fa-lock text-accentGreen mr-1"></i> SSL 256-bit</span>
+                    </div>
+                </div>
+
+                <!-- Right interactive widget simulation -->
+                <div class="lg:col-span-5">
+                    <div class="bg-cardBg border border-gray-800 rounded-3xl p-6 shadow-2xl relative">
+                        <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-accentBlue font-bold">
+                                    <i class="fa-solid fa-chart-candlestick"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">Apple Inc. <span class="text-xs text-gray-400 font-normal">NASDAQ: AAPL</span></h4>
+                                    <span class="text-xs text-accentGreen font-semibold">+2.45% Hoy</span>
+                                </div>
+                            </div>
+                            <span class="text-xl font-mono font-bold text-white">$178.72</span>
+                        </div>
+                        
+                        <!-- Simulated Chart Bars -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex justify-between text-xs text-gray-400">
+                                <span>Rendimiento Mensual</span>
+                                <span class="text-accentGreen">+14.2%</span>
+                            </div>
+                            <div class="h-32 flex items-end space-x-2 pt-4 bg-gray-900/50 rounded-xl p-3 border border-gray-800/50">
+                                <div class="w-1/6 bg-accentGreen/30 rounded-t h-[40%]"></div>
+                                <div class="w-1/6 bg-accentGreen/40 rounded-t h-[55%]"></div>
+                                <div class="w-1/6 bg-accentGreen/50 rounded-t h-[45%]"></div>
+                                <div class="w-1/6 bg-accentGreen/70 rounded-t h-[75%]"></div>
+                                <div class="w-1/6 bg-accentGreen/80 rounded-t h-[65%]"></div>
+                                <div class="w-1/6 bg-accentGreen rounded-t h-[95%] shadow-lg shadow-accentGreen/40"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <button onclick="alert('¡Acción simulada comprada con éxito!')" class="w-full py-3 rounded-xl bg-accentGreen/10 text-accentGreen font-semibold text-sm hover:bg-accentGreen/20 transition border border-accentGreen/30">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> Comprar
+                            </button>
+                            <button onclick="alert('¡Acción simulada vendida con éxito!')" class="w-full py-3 rounded-xl bg-red-500/10 text-red-500 font-semibold text-sm hover:bg-red-500/20 transition border border-red-500/30">
+                                <i class="fa-solid fa-arrow-trend-down mr-1"></i> Vender
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE MERCADOS -->
+    <section id="mercados" class="py-20 bg-gray-950/60 border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Mercados Globales al Alcance de tu Mano</h2>
+                <p class="text-gray-400">Diversifica tu cartera invirtiendo en los activos más líquidos y demandados del mundo financiero.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl hover:border-accentGreen/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-accentBlue/10 flex items-center justify-center text-accentBlue mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-building-columns text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Acciones Globales</h3>
+                    <p class="text-sm text-gray-400 mb-4">Accede a Wall Street, Europa y Asia. Compra acciones fraccionadas desde $10.</p>
+                    <span class="text-xs font-semibold text-accentGreen flex items-center">Más de 3,500 activos <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl hover:border-accentGreen/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-coins text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Criptomonedas</h3>
+                    <p class="text-sm text-gray-400 mb-4">Opera con Bitcoin, Ethereum, Solana y altcoins líderes con máxima seguridad de custodia.</p>
+                    <span class="text-xs font-semibold text-accentGreen flex items-center">Disponible 24/7 <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl hover:border-accentGreen/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-globe text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Forex (Divisas)</h3>
+                    <p class="text-sm text-gray-400 mb-4">Los pares de divisas más operados del mundo (EUR/USD, GBP/USD) con spreads ultra bajos.</p>
+                    <span class="text-xs font-semibold text-accentGreen flex items-center">Liquidez profunda <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl hover:border-accentGreen/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-gem text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Materias Primas</h3>
+                    <p class="text-sm text-gray-400 mb-4">Refúgiate en valores sólidos como el Oro, Plata, Petróleo crudo y Gas Natural.</p>
+                    <span class="text-xs font-semibold text-accentGreen flex items-center">Cobertura ideal <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS SECTION -->
+    <section id="ventajas" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Diseñado tanto para principiantes como expertos</h2>
+                    <p class="text-gray-400">Nuestra plataforma combina una interfaz intuitiva y limpia con herramientas profesionales de análisis técnico para que tomes las mejores decisiones.</p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-accentGreen/10 flex items-center justify-center text-accentGreen shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Comisiones de 0% en acciones</h4>
+                                <p class="text-sm text-gray-400">Invierte sin comisiones ocultas en tus empresas favoritas.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-accentGreen/10 flex items-center justify-center text-accentGreen shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Herramientas de Análisis Avanzadas</h4>
+                                <p class="text-sm text-gray-400">Gráficos interactivos de TradingView integrados en tiempo real.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-lg bg-accentGreen/10 flex items-center justify-center text-accentGreen shrink-0 mt-1">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Soporte 24/7 en tu idioma</h4>
+                                <p class="text-sm text-gray-400">Un equipo de expertos listos para ayudarte en cualquier momento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual box / stats card -->
+                <div class="bg-cardBg border border-gray-800 rounded-3xl p-8 shadow-xl space-y-8">
+                    <div class="text-center pb-6 border-b border-gray-800">
+                        <span class="text-xs uppercase text-accentGreen font-bold tracking-widest">Confianza Global</span>
+                        <h3 class="text-4xl font-black text-white mt-2">+500,000</h3>
+                        <p class="text-sm text-gray-400">Inversores activos operando mensualmente</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div class="bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                            <h4 class="text-2xl font-bold text-white">$4.2B+</h4>
+                            <p class="text-xs text-gray-400 mt-1">Volumen Operado</p>
+                        </div>
+                        <div class="bg-gray-900/60 p-4 rounded-2xl border border-gray-800">
+                            <h4 class="text-2xl font-bold text-accentGreen">99.9%</h4>
+                            <p class="text-xs text-gray-400 mt-1">Tiempo de Actividad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA / SIMULADOR INTERACTIVO (JS) -->
+    <section id="calculadora" class="py-20 bg-gray-950/60 border-t border-b border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 space-y-3">
+                <h2 class="text-3xl font-bold text-white">Calculadora de Crecimiento Financiero</h2>
+                <p class="text-gray-400">Simula el potencial rendimiento a largo plazo de tus ahorros invertidos en el mercado.</p>
+            </div>
+
+            <div class="bg-cardBg border border-gray-800 p-6 sm:p-10 rounded-3xl shadow-2xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Inputs -->
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Inversión Inicial ($ USD)</label>
+                        <input type="range" id="initial-amount" min="100" max="10000" step="100" value="1000" class="w-full accent-accentGreen cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1 font-mono">
+                            <span>$100</span>
+                            <span id="val-initial" class="text-white font-bold">$1,000</span>
+                            <span>$10,000</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Aporte Mensual ($ USD)</label>
+                        <input type="range" id="monthly-amount" min="0" max="1000" step="50" value="200" class="w-full accent-accentGreen cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1 font-mono">
+                            <span>$0</span>
+                            <span id="val-monthly" class="text-white font-bold">$200</span>
+                            <span>$1,000</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-300 mb-2">Tiempo estimado (Años)</label>
+                        <input type="range" id="years" min="1" max="25" step="1" value="5" class="w-full accent-accentGreen cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1 font-mono">
+                            <span>1 Año</span>
+                            <span id="val-years" class="text-white font-bold">5 Años</span>
+                            <span>25 Años</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results display box -->
+                <div class="bg-gray-900/80 border border-gray-800 p-6 sm:p-8 rounded-2xl flex flex-col justify-center space-y-6 text-center">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-gray-400 font-semibold">Valor Estimado Total</span>
+                        <h3 id="result-total" class="text-3xl sm:text-4xl font-extrabold text-accentGreen mt-2">$15,420</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 border-t border-gray-800 pt-4 text-left text-xs">
+                        <div>
+                            <span class="text-gray-400 block">Total aportado:</span>
+                            <span id="result-invested" class="text-white font-mono font-bold text-sm">$13,000</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block">Ganancia estimada:</span>
+                            <span id="result-profit" class="text-accentGreen font-mono font-bold text-sm">+$2,420</span>
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-gray-500 italic">* Cálculo basado en un estimado histórico anual de referencia del 8%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Lo que dicen nuestros inversores</h2>
+                <p class="text-gray-400">Descubre las experiencias reales de usuarios que han transformado su gestión financiera con nosotros.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-sm text-gray-300 italic mb-6">"La plataforma es increíblemente rápida. Empecé comprando acciones fraccionadas y ahora gestiono una cartera diversificada sin pagar comisiones absurdas."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accentGreen/20 text-accentGreen font-bold flex items-center justify-center text-sm">CR</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Carlos R.</h4>
+                            <span class="text-xs text-gray-400">Inversor desde 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 2 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-sm text-gray-300 italic mb-6">"El soporte al cliente es de primer nivel y la herramienta de gráficos me ayudó a entender mejor el análisis técnico sin ser un profesional avanzado."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-accentBlue/20 text-accentBlue font-bold flex items-center justify-center text-sm">LM</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Lucía M.</h4>
+                            <span class="text-xs text-gray-400">Inversora desde 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonio 3 -->
+                <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl flex flex-col justify-between">
+                    <p class="text-sm text-gray-300 italic mb-6">"Poder invertir tanto en acciones internacionales como en criptomonedas desde una sola app cambió completamente mi estrategia."</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">JV</div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white">Javier V.</h4>
+                            <span class="text-xs text-gray-400">Inversor desde 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRO / CTA FINAL -->
+    <section id="registro" class="py-20 bg-gradient-to-b from-darkBg to-gray-950 border-t border-gray-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <div class="space-y-4">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Comienza a invertir hoy mismo</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Crea tu cuenta en menos de 3 minutos y recibe tu bono de bienvenida en operaciones simuladas.</p>
+            </div>
+
+            <form id="signup-form" class="bg-cardBg border border-gray-800 p-8 rounded-3xl shadow-2xl max-w-md mx-auto space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Nombre Completo</label>
+                    <input type="text" id="reg-name" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accentGreen transition" placeholder="Ej. Ana Pérez">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Correo Electrónico</label>
+                    <input type="email" id="reg-email" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accentGreen transition" placeholder="tucorreo@ejemplo.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Contraseña</label>
+                    <input type="password" id="reg-password" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-accentGreen transition" placeholder="Mínimo 8 caracteres">
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-accentGreen text-black font-bold text-sm hover:bg-emerald-400 transition shadow-lg shadow-accentGreen/20 mt-2">
+                    Registrarse Gratis
+                </button>
+            </form>
+
+            <div id="success-msg" class="hidden text-accentGreen font-semibold text-sm bg-accentGreen/10 border border-accentGreen/30 py-3 px-4 rounded-xl max-w-md mx-auto">
+                <i class="fa-solid fa-circle-check mr-2"></i> ¡Registro exitoso! Revisa tu correo para activar tu cuenta.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-12 text-gray-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-lg bg-accentGreen flex items-center justify-center text-black font-black text-sm">
+                        <i class="fa-solid fa-chart-line text-black"></i>
+                    </div>
+                    <span class="text-base font-bold tracking-wider text-white">APEX<span class="text-accentGreen">MARKETS</span></span>
+                </div>
+                <div class="flex space-x-6 text-gray-400">
+                    <a href="#" class="hover:text-accentGreen transition">Privacidad</a>
+                    <a href="#" class="hover:text-accentGreen transition">Términos y Condiciones</a>
+                    <a href="#" class="hover:text-accentGreen transition">Seguridad</a>
+                    <a href="#" class="hover:text-accentGreen transition">Contacto</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 pt-6 text-[11px] leading-relaxed text-gray-500 text-center md:text-left">
+                <p><strong>Aviso de Riesgo:</strong> Operar en la bolsa de valores, criptomonedas y derivados financieros conlleva un alto nivel de riesgo y puede no ser adecuado para todos los inversores. Los rendimientos pasados no garantizan resultados futuros. Asegúrate de comprender completamente los riesgos involucrados antes de operar.</p>
+                <p class="mt-4">© 2026 Apex Markets Corp. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Archivo JS personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
